@@ -12,7 +12,7 @@ from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[1]
 BOOK_PATH = ROOT / "datasets" / "lab5" / "book.pdf"
-OTHER_PATH = ROOT / "de-bai" / "LAB-3.1.pdf"
+OTHER_PATH = ROOT / "datasets" / "lab5" / "thinkstats2.pdf"
 REQUIRED_NLTK_DATA = {
     "punkt_tab": "tokenizers/punkt_tab/english/",
     "stopwords": "corpora/stopwords",
@@ -94,14 +94,14 @@ def main():
     print_summary("Kết quả book.pdf:", tokenize_and_transform(excerpt))
 
     print("\n=== II. BÀI TẬP: PDF KHÁC ===")
-    other_page = read_page(OTHER_PATH, 0)
-    start = other_page.find("Simple Linear Regression is")
-    end = other_page.find("Công thức:", start)
+    other_page = read_page(OTHER_PATH, 20)  # Trang PDF thứ 21, mở đầu Chương 1.
+    start = other_page.find("The thesis of this book is")
+    end = other_page.find("Reports like these are called", start)
     if start < 0 or end < 0:
-        raise ValueError("Không tìm thấy đoạn tiếng Anh cần xử lý trong LAB-3.1.pdf")
+        raise ValueError("Không tìm thấy đoạn cần xử lý trong thinkstats2.pdf")
     other_excerpt = normalize_text(other_page[start:end])
-    print(f"Tệp: {OTHER_PATH.name}; trang 1; độ dài đoạn: {len(other_excerpt)}")
-    print_summary("Kết quả LAB-3.1.pdf:", tokenize_and_transform(other_excerpt))
+    print(f"Tệp: {OTHER_PATH.name}; trang 21; độ dài đoạn: {len(other_excerpt)}")
+    print_summary("Kết quả thinkstats2.pdf:", tokenize_and_transform(other_excerpt))
 
     print("\nVí dụ phân biệt stemming và lemmatization:")
     stemmer = SnowballStemmer("english")

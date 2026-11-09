@@ -19,7 +19,7 @@
 - `datasets/lab3/`: `sample_data.csv` và `property_data.csv`.
 - `datasets/lab3_1/`: `Salary_Data.csv` cho bài hồi quy tuyến tính.
 - `datasets/lab4/`: Moneyball và Netflix 2019 cho bài tiền xử lý dữ liệu.
-- `datasets/lab5/`: `book.pdf` cho bài tiền xử lý văn bản.
+- `datasets/lab5/`: `book.pdf` của đề và `thinkstats2.pdf` cho bài tiền xử lý văn bản.
 - `lab1/`, `lab2/`, `lab3/`, `lab3_1/`, `lab4/`, `lab5/`: notebook, script và hướng dẫn từng bài.
 
 ## Chạy trên Google Colab
